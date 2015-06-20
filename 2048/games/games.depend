@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1433009022 source:/home/mohamed/games/2048/2048.c
+	<stdio.h>
+	<allegro5/allegro5.h>
+
