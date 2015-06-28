@@ -17,19 +17,34 @@ struct Pos {
     int UP, DOWN, RIGHT, LEFT;
 };
 
+ // we will be implementing a simple asteroid system no vectors or dynamic arrays :v
+
+typedef struct {
+    int x, y; // x, y positio,
+    int live ;  // boolean checks if asteroid is live
+} asteroid;
+
 void init_all(void) ;
 
 void destruct( void );
+
+void asteroid_init(asteroid *asteroids);
+
+void asteroid_spawn(asteroid *asteroids, int *asteroid_size);
 
 int main( void  ) {
     init_all();   
     struct Pos moves;
     struct Ship myShip;
+    int asteroid_number = 10;  
+    asteroid *asteroids[asteroid_size];
+
     moves.UP = moves.DOWN = moves.LEFT = moves.RIGHT = 0;
-    
     myShip.x = 0;
-    myShip.y = Width / 2; 
-    
+    myShip.y = Width / 2;
+
+    asteroid_init(asteroids);
+
     //myShip.img = al_load_bitmap("ship.png");
     ALLEGRO_BITMAP *img = al_load_bitmap("ship1.png");
     ALLEGRO_BITMAP *bg  = al_load_bitmap("bg1.png"); 
@@ -118,6 +133,38 @@ int main( void  ) {
     al_destroy_timer(timer);
     al_destroy_event_queue(event_queue);
     return 0;
+}
+
+void asteroid_init(asteroid *asteroids, int ast_size) {
+   
+   for (int i=0; i<ast_size; i++) {
+        asteroids[i].x =  asteroids[i].y =  asteroids[i].live = 0;
+   
+   } 
+
+}
+
+
+void asteroid_spawn(asteroid *asteroids, int ast_size) {
+
+    for (int i=0; i<ast_size; i++) {
+        if (asteroids)
+    
+    }
+}
+
+
+void asteroid_incspot(asteroid *asteroids, int *ast_size) {
+
+    *ast_size += 1;
+    // Duh
+    asteroids[*ast_size].x =  asteroids[*ast_size].y =  asteroids[*ast_size].live = 0;
+
+}
+
+void asteroid_draw(asteroid *asteroids, int ast_size) {
+    
+
 }
 
 void init_all(void) {
